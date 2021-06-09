@@ -19,7 +19,7 @@ func CountAppSubs(appId string, csv_rows []models.CsvRecord) int {
 
 	for _, user := range currentApp.Users {
 		user := *user
-		appCount = appCount + user.CountUnpairedDevices()
+		appCount = appCount + user.CountDevicesPairs()
 	}
 
 	return appCount
