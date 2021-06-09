@@ -13,6 +13,7 @@
 
 # VScode workspace files
 *.code-workspace
+.vscode
 
 # large sample data
 sample-large.csv
