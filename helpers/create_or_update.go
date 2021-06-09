@@ -1,6 +1,8 @@
 package helpers
 
 import (
+	"log"
+
 	"github.com/anebula/flex_go/models"
 	"github.com/anebula/flex_go/utils"
 )
@@ -16,7 +18,7 @@ func CreateOrUpdateUser(record models.CsvRecord, userIdMap map[string]*models.Ap
 			} else if record.ComputerType == utils.Laptop {
 				(*userIdMap[record.UserId]).NumLaptops += 1
 			} else {
-				panic("Unknown device" + record.ComputerType)
+				log.Fatal("Unknown device" + record.ComputerType)
 			}
 
 			(*userIdMap[record.UserId]).DeviceIds[record.ComputerId] = true
@@ -35,7 +37,7 @@ func CreateOrUpdateUser(record models.CsvRecord, userIdMap map[string]*models.Ap
 		} else if record.ComputerType == utils.Laptop {
 			user.NumLaptops += 1
 		} else {
-			panic("Unknown device" + record.ComputerType)
+			log.Fatal("Unknown device" + record.ComputerType)
 		}
 		userIdMap[record.UserId] = &user
 	}

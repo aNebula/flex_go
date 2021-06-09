@@ -21,8 +21,10 @@ func ReadCsvConcurrent(filename string, appIdFilter string) []models.CsvRecord {
 	csv_file, err := os.Open(filename)
 	defer csv_file.Close()
 	if err != nil {
-		panic(err)
+		log.Fatal("Error opening csv file. " + err.Error())
 	}
+
+	log.Println("Parsing csv now...")
 
 	records := make(chan []string)
 	var wg sync.WaitGroup
@@ -36,7 +38,7 @@ func ReadCsvConcurrent(filename string, appIdFilter string) []models.CsvRecord {
 				break
 			}
 			if err != nil {
-				log.Fatal(err)
+				log.Fatal("Error reading row from the csv.")
 			}
 
 			records <- record
