@@ -14,5 +14,8 @@
 # VScode workspace files
 *.code-workspace
 
+# large sample data
+sample-large.csv
+
 # Dependency directories (remove the comment below to include it)
 # vendor/
