@@ -4,6 +4,7 @@ A simple application in Golang to find the number of licenses to request accordi
 ### Prerequisits
 golang version 1.16.4
 a config.toml file is required in the project root, specifying relative `Filename` and `ApplicationId` for the application to filter for.
+The data directory contains sample data to test with. The git repository also has GitHub Actions setup to build and test the code when a PR is opened.
 
 # Build
 ```

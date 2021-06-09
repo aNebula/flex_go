@@ -1,5 +1,8 @@
 package models
 
+/*
+Data model to represent the input csv
+*/
 type CsvRecord struct {
 	ComputerId string
 

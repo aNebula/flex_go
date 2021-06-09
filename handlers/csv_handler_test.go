@@ -8,6 +8,9 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+/*
+Test for reading csv concurrently
+*/
 func TestReadCsvConcurrent(t *testing.T) {
 
 	test_csv := "../data/simple.csv"
