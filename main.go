@@ -11,8 +11,6 @@ import (
 
 func createOrUpdateUser(record models.CsvRecord, userIdMap map[string]*models.ApplicationUser) {
 
-	var user models.ApplicationUser
-
 	if _, ok := userIdMap[record.UserId]; ok {
 		// if user is already on the userIdMap, check if this is a new device.
 		if _, found := (*userIdMap[record.UserId]).DeviceIds[record.ComputerId]; !found {
@@ -30,7 +28,7 @@ func createOrUpdateUser(record models.CsvRecord, userIdMap map[string]*models.Ap
 
 	} else {
 		// if user is not in the userIdMap, create a new user
-		user = models.ApplicationUser{
+		user := models.ApplicationUser{
 			UserId:     record.UserId,
 			NumLaptops: 0,
 			NumDesktop: 0,
