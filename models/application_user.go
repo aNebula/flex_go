@@ -13,5 +13,12 @@ type ApplicationUser struct {
 }
 
 func (appUser ApplicationUser) CountUnpairedDevices() int {
-	return utils.Abs(appUser.NumLaptops - appUser.NumDesktop)
+	return min(appUser.NumDesktop, appUser.NumLaptops) + utils.Abs(appUser.NumLaptops-appUser.NumDesktop)
+}
+
+func min(x, y int) int {
+	if x < y {
+		return x
+	}
+	return y
 }
