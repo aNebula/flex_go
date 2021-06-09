@@ -10,6 +10,7 @@ import (
 	"github.com/anebula/flex_go/helpers"
 )
 
+// struct for reading config
 type Config struct {
 	Filename      string
 	ApplicationId string
@@ -17,6 +18,7 @@ type Config struct {
 
 func main() {
 
+	// read config
 	var conf Config
 	if _, err := toml.DecodeFile("config.toml", &conf); err != nil {
 		log.Fatal("Error decoding config toml. Please check valid toml is present at ./config.toml")

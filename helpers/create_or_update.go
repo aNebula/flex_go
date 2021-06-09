@@ -7,6 +7,12 @@ import (
 	"github.com/anebula/flex_go/utils"
 )
 
+/*
+Given a csv record(row), either add the User with the information from the record
+to the userIdMap, or if user already exists in the map with same Id, then update
+user's desktop count, laptop count and list of devices.
+Returns nothing, but modifies the input map of userIds to models.ApplicationUser.
+*/
 func CreateOrUpdateUser(record models.CsvRecord, userIdMap map[string]*models.ApplicationUser) {
 
 	if _, ok := userIdMap[record.UserId]; ok {

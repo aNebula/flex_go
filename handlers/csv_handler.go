@@ -12,9 +12,12 @@ import (
 )
 
 /*
+Read csv concurrently, given a filename and an id string for filtering with app id.
 Reading csv concurrently saves about 4s on 1Gb file. Spawning more goroutine for filtering and
 instantiating models.CSVRecords does not improve performance. This is because the processing task is
 small and much quicker than disk I/O.
+
+Returns all the filtered rows of models.CsvRecord.
 */
 func ReadCsvConcurrent(filename string, appIdFilter string) []models.CsvRecord {
 
