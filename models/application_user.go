@@ -12,13 +12,6 @@ type ApplicationUser struct {
 	DeviceIds map[string]bool
 }
 
-func (appUser ApplicationUser) CountUnpairedDevices() int {
-	return min(appUser.NumDesktop, appUser.NumLaptops) + utils.Abs(appUser.NumLaptops-appUser.NumDesktop)
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
+func (appUser ApplicationUser) CountDevicesPairs() int {
+	return utils.Min(appUser.NumDesktop, appUser.NumLaptops) + utils.Abs(appUser.NumLaptops-appUser.NumDesktop)
 }
